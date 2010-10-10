@@ -481,7 +481,7 @@ export."
     (goto-char start)
     (interblock-initiate-R-buffer)
     (let (code replacement)
-      (while (and (< (point) end) (re-search-forward "\\\\R{\\(.*\\)}" end t))
+      (while (and (< (point) end) (re-search-forward "\\\\R{\\([^}]*\\)}" end t))
 	(save-match-data (setf code (match-string 1)))
 	(setf replacement (interblock-R-command-to-string code))
         (if (string= (substring replacement 0 1) "\"")
